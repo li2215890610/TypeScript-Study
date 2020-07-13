@@ -22,3 +22,11 @@ const sumStr1 = (s:string,d?:string):string => {
 
 sumStr1('2','4')
 
+
+const reverse = (x: number | string): number | string => {
+  if (typeof x === 'number') {
+      return Number(x.toString().split('').reverse().join(''));
+  } else if (typeof x === 'string') {
+      return x.split('').reverse().join('');
+  }
+}
