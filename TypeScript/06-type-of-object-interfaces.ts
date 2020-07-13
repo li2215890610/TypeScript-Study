@@ -60,3 +60,11 @@ lanLingWang.id = 999
 export {
   zhangSan
 }
+
+const { id: naKeLuLuId, name: naKeLuLuName, age: naKeLuLuAge}: Person4 = {
+  id: 2,
+  name:"娜可露露",
+  age: 23
+ }
+
+console.log(naKeLuLuId,naKeLuLuName,naKeLuLuAge)

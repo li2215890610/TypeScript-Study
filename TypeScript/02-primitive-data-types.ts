@@ -17,11 +17,6 @@ let myGirlfriendAge: number = 24;
 let sentence: string = `Hello, my name is ${myGirlfriendName}.
 I'll be ${myGirlfriendAge + 1} years old next month.`;
 
-//空值
-function alertName(): void {
-  alert('My name is Tom');
-}
-let unusable: void = undefined;
 // Null 和 Undefined
 let u: undefined = undefined;
 let n: null = null;

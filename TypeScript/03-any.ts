@@ -21,3 +21,10 @@ something = 7;
 
 something.setName('Tom');
 
+
+
+//空值
+function alertName(): void {
+  alert('My name is Tom');
+}
+let unusable: void = undefined;
