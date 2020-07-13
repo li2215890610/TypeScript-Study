@@ -64,7 +64,8 @@ var binaryLiteral = 10;
 var octalLiteral = 484;
 var notANumber = NaN;
 ```
-### 字符串
+---
+#### 字符串
 使用 ```string``` 定义字符串类型：
 
 ```
@@ -75,22 +76,7 @@ var sentence = "Hello, my name is " + myGirlfriendName + ".\nI'll be " + (myGirl
 
 ---
 
-### 空值
-JavaScript 没有空值（Void）的概念，在 TypeScript 中，可以用 ```void``` 表示没有任何返回值的函数：
-类似于Object-c与JAVA中的返回值
-```
-function alertName(): void {
-    alert('My name is Tom');
-}
-```
-声明一个```void``` 类型的变量没有什么用，因为你只能将它赋值为 ```undefined``` 和 ```null```：
-```
-let unusable: void = undefined;
-```
-
----
-
-### Null 和 Undefined
+#### Null 和 Undefined
 
 在 TypeScript 中，可以使用 ```null``` 和 ```undefined``` 来定义这两个原始数据类型：
 
@@ -120,3 +106,4 @@ let num3: number = u3;
 Found 2 error.
 ***/
 ```
+

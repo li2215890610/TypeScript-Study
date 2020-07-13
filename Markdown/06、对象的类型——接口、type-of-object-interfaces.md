@@ -120,3 +120,17 @@ lanLingWang.id = 999;
 ***/
 ```
 上例中，使用 ```readonly``` 定义的属性 ```id``` 初始化后，又被赋值了，所以报错了。
+
+---
+#### 属性重命名
+可以给属性以不同的名字：
+
+```
+const { id: naKeLuLuId, name: naKeLuLuName, age: naKeLuLuAge}: Person4 = {
+  id: 2,
+  name:"娜可露露",
+  age: 23
+ }
+
+console.log(naKeLuLuId,naKeLuLuName,naKeLuLuAge)
+```
