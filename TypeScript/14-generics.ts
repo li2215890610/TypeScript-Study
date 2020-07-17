@@ -34,11 +34,32 @@ const identity5 = <Ts>(arg: Array<Ts>): Ts[] => {
 identity5<number>([3,4])
 
 
-const identity6 = <Ts>(arg: Ts): Ts => {
-  console.log(arg.length)
+
+interface identity6T {
+  <T>(arg: T): T;
+}
+
+const identity6:identity6T = <T>(arg: T): T =>{
   return arg;
 }
 
-identity6<number[]>([3,4])
 
+interface identity7T<T> {
+  <T>(arg: T): T;
+}
 
+const identity7:identity7T<number> = <T>(arg: T): T =>{
+  return arg;
+}
+
+ 
+
+class identity8<T> {
+  zeroValue: T;
+  add: (x: T, y: T) => T;
+  constructor(data:T){
+    this.zeroValue = data
+  }
+}
+
+new identity8<number>(2)

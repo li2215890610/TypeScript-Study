@@ -38,7 +38,7 @@ listNumber2.push('8');
 ```
 let listNumber3: Array<number> = [1, 1, 2, 3, 5];
 ```
-关于泛型，可以参考 [18、泛型](https://note.youdao.com/)
+关于泛型，可以参考 [14、泛型](http://note.youdao.com/s/C4tgyCL6)
 
 #### 用接口表示数组
 接口也可以用来描述数组：
