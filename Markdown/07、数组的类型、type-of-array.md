@@ -47,6 +47,6 @@ let listNumber3: Array<number> = [1, 1, 2, 3, 5];
 
 #### any 在数组中的应用
 一个比较常见的做法是，用 ```any``` 表示数组中允许出现任意类型：
-````
+```
 let list: any[] = ['xcatliu', 25, { website: 'http://xcatliu.com' }];
 ```
