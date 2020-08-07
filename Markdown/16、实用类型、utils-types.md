@@ -1,12 +1,12 @@
 #### Partial<T>
 构造类型```T```，将它所有的属性设置为可选的。
 ```
-interface Todo1 {
+interface Todo {
   title: string;
   description: string;
 }
 
-function updateTodo(todo: Todo1, fieldsToUpdate: Partial<Todo1>) {
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
   return { ...todo, ...fieldsToUpdate };
 }
 
@@ -22,23 +22,31 @@ const log = updateTodo(todo1, {
 console.log(log)
 ```
 
+其实就是把 ```Todo``` 变为可选
+```
+interface Todo {
+  title?: string;
+  description?: string;
+}
+
+```
 ---
 #### Readonly<T>
 构造类型```T```，并将它所有的属性设置为```readonly```，也就是说构造出的类型的属性不能被再次赋值。
 
 ```
-interface Todo2 {
-  title: string;
+interface Todo {
+    title: string;
 }
 
-const todo2: Readonly<Todo2> = {
-  title: 'Delete inactive users',
+const todo: Readonly<Todo> = {
+    title: 'Delete inactive users',
 };
 
-todo2.title = 'Hello'; /***
+todo.title = 'Hello'; /***
 16-utils-types.ts:31:7 - error TS2540: Cannot assign to 'title' because it is a read-only property.
 
-31 todo2.title = 'Hello';
+31 todo1.title = 'Hello';
          ~~~~~
 
 
@@ -52,15 +60,15 @@ Found 1 error.
 
 ```
 interface PageInfo {
-  title: string;
+    title: string;
 }
 
 type Page = 'home' | 'about' | 'contact';
 
 const x: Record<Page, PageInfo> = {
-  about: { title: 'about' },
-  contact: { title: 'contact' },
-  home: { title: 'home' },
+    about: { title: 'about' },
+    contact: { title: 'contact' },
+    home: { title: 'home' },
 };
 ```
 
@@ -70,16 +78,16 @@ const x: Record<Page, PageInfo> = {
 从类型```T```中挑选部分属性```K```来构造类型。
 
 ```
-interface Todo3 {
+interface Todo2 {
   title: string;
   description: string;
   completed: boolean;
   subTitle: string
 }
 
-type TodoPreview = Pick<Todo3, 'title' | 'completed' | 'subTitle'>;
+type TodoPreview = Pick<Todo2, 'title' | 'completed' | 'subTitle'>;
 
-const todo3: TodoPreview = {
+const todo2: TodoPreview = {
   title: 'Clean room',
   completed: false,
   subTitle: '2'
@@ -92,16 +100,16 @@ const todo3: TodoPreview = {
 从类型```T```中删除部分属性```K```来构造类型。
 
 ```
-interface Todo4 {
+interface Todo3 {
   title: string;
   description: string;
   completed: boolean;
   subTitle: string
 }
 
-type TodoPreview1 = Omit<Todo4, 'title' | 'completed' | 'subTitle'>;
+type TodoPreview1 = Omit<Todo3, 'title' | 'completed' | 'subTitle'>;
 
-const todo4: TodoPreview1 = {
+const todo3: TodoPreview3 = {
   description:'222'
 };
 ```
@@ -144,14 +152,14 @@ type T7 = ReturnType<() => string>;  // string
 type T8 = ReturnType<(s: string) => void>;  // void
 type T9 = ReturnType<(<T>() => T)>;  // {}
 type T10 = ReturnType<(<T extends U, U extends number[]>() => T)>;  // number[]
-type Todo5 = { a: number, b: string}
-const todo5 = ():Todo5 =>{
+type Todo4 = { a: number, b: string}
+const todo5 = ():Todo4 =>{
   return {
     a: 2,
     b: '33'
   }
 }
-type T11 = ReturnType<typeof todo5>;  // { a: number, b: string }
+type T11 = ReturnType<typeof todo3>;  // { a: number, b: string }
 type T12 = ReturnType<any>;  // any
 type T13 = ReturnType<never>;  // any
 type T14 = ReturnType<string>;  // Error
@@ -190,6 +198,13 @@ const todo8: Required<Props> = { a: 5 };
 /***
 16-utils-types.ts:137:7 - error TS2739: Type '{ a: number; }' is missing the following properties from type 'Required<Props>': b, c
 
-137 const todo8: Required<Props> = { a: 5 };
+137 const todo7: Required<Props> = { a: 5 };
 ***/
+```
+#### keyof
+可以获取对象类型的所有 key
+
+```
+type todo9 = { a: string; b: string }
+type todo10 = keyof todo9; // 'a' | 'b'
 ```
