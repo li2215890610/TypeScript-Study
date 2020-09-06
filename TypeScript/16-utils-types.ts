@@ -134,7 +134,7 @@ interface Props {
 
 const todo7: Props = { a: 5 }; // OK
 
-const todo8: Required<Props> = { a: 5 };
+const todo8: Required<Props> = { a: 5, b:'22', c: true };
 
 
 type todo9 = { a: string; b: string }
